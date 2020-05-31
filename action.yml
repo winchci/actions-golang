@@ -9,6 +9,7 @@ runs:
   using: 'docker'
   image: "docker://winchci/golang:latest"
   args:
+    - 'git config --global url."https://$GITHUB_TOKEN:x-oauth-basic@github.com/".insteadOf "https://github.com/"'
     - 'winch ci -f ${{ inputs.filename }}'
 branding:
   icon: 'anchor'
