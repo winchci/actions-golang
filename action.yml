@@ -5,12 +5,16 @@ inputs:
     description: 'Configuration filename'
     required: false
     default: 'winch.yml'
+  command:
+    description: 'Command'
+    required: false
+    default: 'ci'
 runs:
   using: 'docker'
   image: "docker://winchci/golang:latest"
   args:
     - 'git config --global url."https://$GITHUB_TOKEN:x-oauth-basic@github.com/".insteadOf "https://github.com/"; '
-    - 'winch ci -f ${{ inputs.filename }}'
+    - 'winch ${{ inputs.command }} -f ${{ inputs.filename }}'
 branding:
   icon: 'anchor'
   color: 'purple'
