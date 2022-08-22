@@ -11,7 +11,7 @@ inputs:
     default: 'ci'
 runs:
   using: 'docker'
-  image: "docker://winchci/golang-1.18:v1.27.2"
+  image: "docker://winchci/golang:v1.27.2"
   args:
     - 'git config --global url."https://$GITHUB_TOKEN:x-oauth-basic@github.com/".insteadOf "https://github.com/"; '
     - 'winch ${{ inputs.command }} -f ${{ inputs.filename }}'
